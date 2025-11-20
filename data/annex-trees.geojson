@@ -1,3 +1,8 @@
+{
+  "type": "FeatureCollection",
+  "name": "Annex_Tree_Data_Small",
+  "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::4269" } },
+  "features": [
 { "type": "Feature", "properties": { "Date": "2012", "tree_no": "159", "house_number": "98", "street_code": "Kendal Ave", "species_code": "aldspp", "tree_name": "Alder Species", "n_o_s": "8.0", "DBH": "6.2", "total_height": "5.0", "Comments": "", "X coordinate": -79.409451, "Y coordinate": 43.673255 }, "geometry": { "type": "Point", "coordinates": [ -79.409451, 43.673255 ] } },
 { "type": "Feature", "properties": { "Date": "2012", "tree_no": "238", "house_number": "161", "street_code": "Howland Ave", "species_code": "aldspp", "tree_name": "Alder Species", "n_o_s": "1.0", "DBH": "24.5", "total_height": "8.0", "Comments": "pic 77", "X coordinate": -79.410708, "Y coordinate": 43.671072 }, "geometry": { "type": "Point", "coordinates": [ -79.410708, 43.671072 ] } },
 { "type": "Feature", "properties": { "Date": "2014", "tree_no": "11", "house_number": "50", "street_code": "Lowther Ave", "species_code": "angjap", "tree_name": "Japanese Angelica Tree", "n_o_s": "4.0", "DBH": "9.0", "total_height": "5.0", "Comments": "", "X coordinate": -79.397792, "Y coordinate": 43.670526 }, "geometry": { "type": "Point", "coordinates": [ -79.397792, 43.670526 ] } },
@@ -10133,3 +10138,5 @@
 { "type": "Feature", "properties": { "Date": "2014", "tree_no": "580", "house_number": "62", "street_code": "Admiral Rd", "species_code": "yewspp", "tree_name": "Yew species", "n_o_s": "9.0", "DBH": "6.6", "total_height": "5.0", "Comments": "", "X coordinate": -79.400984, "Y coordinate": 43.672416 }, "geometry": { "type": "Point", "coordinates": [ -79.400984, 43.672416 ] } },
 { "type": "Feature", "properties": { "Date": "2014", "tree_no": "581", "house_number": "62", "street_code": "Admiral Rd", "species_code": "yewspp", "tree_name": "Yew species", "n_o_s": "3.0", "DBH": "7.3", "total_height": "5.0", "Comments": "", "X coordinate": -79.401043, "Y coordinate": 43.672413 }, "geometry": { "type": "Point", "coordinates": [ -79.401043, 43.672413 ] } }
 );
+  ]
+}
