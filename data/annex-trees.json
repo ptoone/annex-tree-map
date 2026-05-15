@@ -167148,30 +167148,6 @@
             "type": "Feature",
             "properties": {
                 "Date": "2012",
-                "tree_no": "00006966",
-                "house_number": "1",
-                "street_code": "Wells St",
-                "species_code": "mapsug",
-                "tree_name": "Sugar Maple",
-                "n_o_s": "2.0",
-                "DBH": "9.0",
-                "total_height": "7.0",
-                "Comments": "",
-                "X coordinate": -79.408217,
-                "Y coordinate": 43.67109
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -79.408217,
-                    43.67109
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "Date": "2012",
                 "tree_no": "00006967",
                 "house_number": "3",
                 "street_code": "Wells St",
