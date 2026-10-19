@@ -125,4 +125,4 @@ The Annex Tree Map was created by [Perry Toone](https://xyz.am/perry), with supp
 
 Project code is licensed under the [GNU General Public License v3.0](https://github.com/ptoone/annex-tree-map/blob/main/LICENSE). GPL-3.0 is a copyleft license, not a public-domain dedication.
 
-The historical survey data has separate provenance. Check the dataset's applicable terms before redistribution; the code license alone does not establish a public-domain dedication or a license for the original data. Attribution to the Annex Residents' Association and survey volunteers is appreciated.
+Attribution to the Annex Residents' Association and survey volunteers is appreciated.
