@@ -1,175 +1,128 @@
-# 🌳 Annex Tree Map
+# Annex Tree Map
 
-Community-Sourced Urban Forest Data for Toronto’s Annex Neighbourhood
-https://atm.xyz.am
+Community-sourced urban forest data for Toronto's Annex neighbourhood.
 
-## 📍 Overview
+[Explore the map](https://atm.xyz.am) | [Get involved](https://atm.xyz.am/get-involved.php) | [Recent updates](https://atm.xyz.am/updates.php)
 
-The **Annex Tree Map** is a community-driven project to preserve, visualize, maintain, and expand the historical tree inventory collected in Toronto’s Annex neighbourhood between **2010 and 2014**.
+## Overview
 
-Originally surveyed by neighbourhood volunteers through the **Annex Residents’ Association (ARA)**, the dataset documents thousands of trees, including species, diameter, height, condition notes, and geographic coordinates.
+The Annex Tree Map preserves, visualizes, maintains, and expands the historical tree inventory collected by neighbourhood volunteers through the Annex Residents' Association (ARA) between 2010 and 2014.
 
-The project now provides a public, interactive map at:
+The public website makes tree records easier to explore and gives the community ways to suggest corrections, add observations, and maintain the dataset.
 
-➡️ **https://atm.xyz.am**
+## Dataset
 
----
+The initial ID cleanup assigned unique eight-digit string IDs to 10,134 records, from `00000001` through `00010134`, with no duplicate IDs at that time. Tree counts change as records are added or deleted; these figures describe the cleanup baseline, not a live inventory count.
 
-## ✅ Current Dataset Status
+- The main dataset is `data/annex-trees.json`, a GeoJSON FeatureCollection hosted on GitHub.
+- Each record's `tree_no` is a string. Preserve its leading zeros.
+- Admin assigns new IDs automatically from the current maximum ID plus one.
+- IDs identify records; they are not physical tree tags or street-level survey numbers.
 
-The Annex Tree Map dataset has been cleaned and normalized.
+## Explore
 
-- **10,134 trees**
-- **Unique 8-digit tree IDs**
-- Tree IDs range from `00000001` to `00010134`
-- **Zero duplicate tree IDs confirmed**
-- Dataset maintained as GeoJSON/JSON for public use and community improvement
+- [Interactive map](https://atm.xyz.am/edit.php?view=map): browse tree locations and records.
+- [Statistics](https://atm.xyz.am/stats.php): explore species and size distributions.
+- [Suggest an edit](https://atm.xyz.am/edit.php): submit a correction without an account.
+- [Updates](https://atm.xyz.am/updates.php): follow changes and community suggestions.
+- [Embedding options](https://atm.xyz.am/embed.php): share the map on another website.
 
-This unique ID system makes it easier to reference, correct, update, and expand individual tree records over time.
+The map uses OpenStreetMap and Leaflet.
 
----
+## Contribute
 
-## 🗺️ Live Interactive Map
+### Spotters
 
-The interactive map is available here:
+No account is needed. Spotters can suggest changes to existing trees, including species, measurements, location, and notes.
 
-**https://atm.xyz.am**
+1. Find the tree and note its eight-digit ID.
+2. Open the [edit form](https://atm.xyz.am/edit.php).
+3. Describe the correction and submit the suggested values.
 
-The map uses **OpenStreetMap** and **Leaflet** to display Annex tree data and supports browsing and filtering by tree information such as:
+Suggestions create GitHub issues and remain pending until reviewed and applied. Spotters cannot add new trees through this form.
 
-- Species
-- Street
-- Tree size / DBH ranges
-- Individual tree records
+### Mappers
 
----
+Mappers have admin access and a GitHub account with collaborator access to the data repository. They can edit existing records, add trees, and delete incorrect records directly.
 
-## 🌲 Data Source & Credits
+To express interest, [subscribe by email](https://atm.xyz.am/index.php#subscribe). Subscription does not automatically grant editing access; a Steward must invite you.
 
-The original dataset comes from the **Annex Residents’ Association Tree Mapping Project**, conducted between **2010 and 2014**.
+Once access is arranged:
 
-Neighbourhood volunteers collected information including:
+1. Accept the GitHub collaborator invitation.
+2. Sign in to the [Admin Editor](https://atm.xyz.am/admin.php) with the admin password supplied by the project owner.
+3. Connect your GitHub account using the token instructions on that page.
+4. Search for a tree to edit, or choose **Add New Tree**.
+5. Save the record to commit the change to GitHub.
 
-- Tree species
-- Street address
-- DBH — Diameter at Breast Height
-- Height
-- Number of stems
-- Comments and condition notes
-- Geographic coordinates
+**Admin changes create commits, not issues.** Check the [commit history](https://github.com/ptoone/annex-tree-map/commits/main/) to verify an edit, addition, or deletion. The public map may take a short time to reflect a change.
 
-The original data was published through the ARA website and exported as GeoJSON. This repository helps preserve that work while making the data easier to maintain, correct, and expand.
+Keep passwords and personal access tokens private. Never paste tokens into issues, pull requests, or repository files.
 
----
+### Stewards
 
-# 📁 Repo Structure
-/data
-   annex-trees.json     → Main GeoJSON dataset
+Stewards are trusted maintainers with GitHub access who can invite other Mappers, manage collaborator access, and review community suggestions. Owner-only site management uses a separate superadmin login.
 
-README.md               → You are here
+### Pull Requests And Issues
 
-# 🛠️ Contributing
+Contributions through GitHub are also welcome:
 
-We welcome pull requests for:
+- Correct coordinates, species, measurements, or missing street information.
+- Add verified tree observations.
+- Improve the website, documentation, or data validation.
 
-Fixing incorrect coordinates
+[Open an issue](https://github.com/ptoone/annex-tree-map/issues) with the tree ID, location, current value, proposed correction, and supporting observations. For code or data changes, submit a pull request with a focused description.
 
-Correcting tree heights or DBH anomalies
+## Data Format
 
-Adding missing street names
+Each tree is a GeoJSON Point feature with properties such as:
 
-Cleaning species names
+- `tree_no`: unique eight-digit record ID.
+- `Date`: survey year.
+- `house_number` and `street_code`: address information.
+- `species_code` and `tree_name`: species identification.
+- `n_o_s`: number of stems.
+- `DBH`: diameter at breast height, in centimetres.
+- `total_height`: height in metres.
+- `Comments`: field notes.
+- `X coordinate` and `Y coordinate`: longitude and latitude.
 
-Adding new tree observations
+GeoJSON `geometry.coordinates` uses **[longitude, latitude]** order. When changing a location, keep the coordinate properties and geometry synchronized. Many original measurement fields are stored as strings; preserve the existing schema unless a coordinated migration is planned.
 
-Improving map functionality
+For new trees, use the Admin Editor so it assigns the ID and constructs the feature. Do not copy an existing tree's ID. For manual data pull requests, check ID uniqueness across the entire dataset.
 
-1. Fixing Data
+Need coordinates? Use the [coordinate tool](https://coordinates.xyz.am/).
 
-If you spot errors:
+## Repository Structure
 
-Open an Issue
-
-Describe the problem (tree_no, location, expected value)
-
-Submit a Pull Request with the fix
-
-# 🧰 Adding New Trees (JSON Generator)
-
-Visit:
-
-➡️ https://annextrees.xyz.am
-
-Scroll to the JSON Generator tool.
-
-It will output a properly formatted GeoJSON fragment like:
-
-```html
-
-{
-  "type": "Feature",
-  "properties": {
-    "Date": "2024",
-    "tree_no": "987",
-    "house_number": "42",
-    "street_code": "Kendal Ave",
-    "species_code": "acrsac",
-    "tree_name": "Sugar Maple",
-    "n_o_s": "1.0",
-    "DBH": "28.0",
-    "total_height": "8.5",
-    "Comments": "",
-    "X coordinate": -79.405501,
-    "Y coordinate": 43.673770
-  },
-  "geometry": {
-    "type": "Point",
-    "coordinates": [ -79.405501, 43.673770 ]
-  }
-}
+```text
+data/
+  annex-trees.json    Main GeoJSON dataset
+README.md            Project documentation
 ```
 
-Paste this directly into annex-trees.json.
+The PHP website is deployed separately; the tree data remains hosted on GitHub.
 
-Need coordinates?
-Use the companion tool:
-📌 https://coordinates.xyz.am
+## Data Quality
 
-🔗 Embedding the Map
+Historical survey records may contain missing or invalid coordinates, unrealistic measurements, incomplete street information, and shared coordinates. A record may also no longer describe a living tree at that location.
 
-You can embed the tree map in any site using:
+Treat measurements as survey observations, not current verified conditions. Check uncertain records in the field before correcting them, and explain the evidence in your suggestion or pull request. ID cleanup does not establish that every record represents a distinct physical tree.
 
-```html
-<iframe
-  src="https://annextreemap.xyz.am/"
-  width="100%"
-  height="600"
-  style="border:0;"
-></iframe>
-```
+## Data Source And Credits
 
+The original inventory was collected by Annex Residents' Association volunteers and community members between approximately 2010 and 2014. Their work recorded species, addresses, tree measurements, stems, condition notes, and locations.
 
-# 🧪 Data Quality Notes
+This project republishes that survey as GeoJSON and provides tools for its continued improvement. Please acknowledge the original survey organizers and volunteers when reusing the dataset.
 
-During cleaning, several issues were identified:
+The Annex Tree Map was created by [Perry Toone](https://xyz.am/perry), with support from Annex-based [Thexyz](https://thexyz.com). The website is hosted with Thexyz and powered by renewable energy.
 
-~345 trees with coordinates (0,0)
+## Screenshot
 
-A few unrealistic heights (e.g., 200m)
+![Annex Tree Map screenshot](https://github.com/ptoone/annex-tree-map/blob/main/data/annextrees.png?raw=true)
 
-Some missing street names
+## License
 
-Some text-based numeric fields (“6.2” instead of numbers)
+Project code is licensed under the [GNU General Public License v3.0](https://github.com/ptoone/annex-tree-map/blob/main/LICENSE). GPL-3.0 is a copyleft license, not a public-domain dedication.
 
-Duplicate coordinates due to surveying from the same point
-
-Issues have been documented in GitHub for transparency.
-
-# 📸 Screenshot
-
-![Annex Tree Map Screenshot](https://github.com/ptoone/annex-tree-map/blob/main/data/annextrees.png?raw=true)
-
-# 📝 License
-
-This project is open data.
-Attribution to the Annex Residents’ Association is appreciated.
+The historical survey data has separate provenance. Check the dataset's applicable terms before redistribution; the code license alone does not establish a public-domain dedication or a license for the original data. Attribution to the Annex Residents' Association and survey volunteers is appreciated.
